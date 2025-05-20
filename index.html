@@ -7,7 +7,7 @@
   <style>
     body {
       font-family: "Segoe UI", Roboto, sans-serif;
-      background: linear-gradient(145deg, #cfe0e8, #eaf4f4);
+      background: linear-gradient(135deg, #d1fae5, #a7f3d0);
       text-align: center;
       margin: 0;
       padding: 2rem;
@@ -56,6 +56,21 @@
       background-color: #dc2626 !important;
     }
 
+    #feedback {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-top: 1rem;
+      display: none;
+    }
+
+    .correct-msg {
+      color: #16a34a;
+    }
+
+    .incorrect-msg {
+      color: #dc2626;
+    }
+
     #explanation {
       margin-top: 1.5rem;
       font-size: 1rem;
@@ -76,6 +91,7 @@
     <h1 id="question">Loading...</h1>
     <button class="btn" id="btnA" onclick="selectAnswer('A')"></button>
     <button class="btn" id="btnB" onclick="selectAnswer('B')"></button>
+    <div id="feedback"></div>
     <div id="explanation"></div>
   </div>
 
@@ -84,7 +100,7 @@
       {
         text: "Chemical Engineering is just chemistry.",
         options: {
-          A: "Myth ✅",
+          A: "Myth",
           B: "Fact"
         },
         correct: "A",
@@ -93,7 +109,7 @@
       {
         text: "Chemical engineers mainly work in labs.",
         options: {
-          A: "Myth ✅",
+          A: "Myth",
           B: "Fact"
         },
         correct: "A",
@@ -102,7 +118,7 @@
       {
         text: "Chemical engineers at Loughborough are all male.",
         options: {
-          A: "Myth ✅",
+          A: "Myth",
           B: "Fact"
         },
         correct: "A",
@@ -117,6 +133,7 @@
     const btnA = document.getElementById("btnA");
     const btnB = document.getElementById("btnB");
     const explanation = document.getElementById("explanation");
+    const feedback = document.getElementById("feedback");
 
     function loadQuestion() {
       let nextIndex;
@@ -131,6 +148,7 @@
       btnA.textContent = currentQuestion.options.A;
       btnB.textContent = currentQuestion.options.B;
       explanation.style.display = "none";
+      feedback.style.display = "none";
       btnA.disabled = false;
       btnB.disabled = false;
       btnA.className = "btn";
@@ -143,16 +161,21 @@
 
       if (choice === currentQuestion.correct) {
         document.getElementById("btn" + choice).classList.add("correct");
+        feedback.textContent = "Correct!";
+        feedback.className = "correct-msg";
       } else {
         document.getElementById("btn" + choice).classList.add("incorrect");
         document.getElementById("btn" + currentQuestion.correct).classList.add("correct");
+        feedback.textContent = "Incorrect!";
+        feedback.className = "incorrect-msg";
       }
 
+      feedback.style.display = "block";
       explanation.textContent = currentQuestion.explanation;
       explanation.style.display = "block";
 
-      // Auto-load next question after 5 seconds
       setTimeout(() => {
+        feedback.style.display = "none";
         loadQuestion();
       }, 5000);
     }
