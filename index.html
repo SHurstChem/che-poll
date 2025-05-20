@@ -83,18 +83,27 @@
     const explanation = document.getElementById("explanation");
     const resetBtn = document.getElementById("resetBtn");
 
-    function loadQuestion() {
-      currentQuestion = questions[Math.floor(Math.random() * questions.length)];
-      questionText.textContent = currentQuestion.text;
-      btnA.textContent = currentQuestion.options.A;
-      btnB.textContent = currentQuestion.options.B;
-      explanation.style.display = "none";
-      resetBtn.style.display = "none";
-      btnA.disabled = false;
-      btnB.disabled = false;
-      btnA.className = "";
-      btnB.className = "";
-    }
+  let lastQuestionIndex = -1;
+
+function loadQuestion() {
+  let nextIndex;
+  do {
+    nextIndex = Math.floor(Math.random() * questions.length);
+  } while (questions.length > 1 && nextIndex === lastQuestionIndex); // avoid repeat
+
+  lastQuestionIndex = nextIndex;
+  currentQuestion = questions[nextIndex];
+
+  questionText.textContent = currentQuestion.text;
+  btnA.textContent = currentQuestion.options.A;
+  btnB.textContent = currentQuestion.options.B;
+  explanation.style.display = "none";
+  resetBtn.style.display = "none";
+  btnA.disabled = false;
+  btnB.disabled = false;
+  btnA.className = "";
+  btnB.className = "";
+}
 
     function selectAnswer(choice) {
       const correct = currentQuestion.correct;
