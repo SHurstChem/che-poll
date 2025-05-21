@@ -178,6 +178,7 @@
     ];
 
     let currentIndex = 0;
+    let timeoutId = null;
 
     const questionText = document.getElementById("question");
     const btnA = document.getElementById("btnA");
@@ -195,6 +196,11 @@
     }
 
     function loadQuestion() {
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+        timeoutId = null;
+      }
+
       if (currentIndex >= questions.length) {
         shuffleArray(questions);
         currentIndex = 0;
@@ -203,11 +209,15 @@
       const currentQuestion = questions[currentIndex];
       currentIndex++;
 
+      window.currentQuestion = currentQuestion;
+
       questionText.textContent = currentQuestion.text;
       btnA.textContent = currentQuestion.options.A;
       btnB.textContent = currentQuestion.options.B;
+
       explanation.style.display = "none";
       feedback.style.display = "none";
+
       btnA.disabled = false;
       btnB.disabled = false;
       btnA.className = "btn";
@@ -222,9 +232,6 @@
         questionImage.src = "";
         questionImage.alt = "";
       }
-
-      // Save current question for answer check
-      window.currentQuestion = currentQuestion;
     }
 
     function selectAnswer(choice) {
@@ -248,6 +255,16 @@
       explanation.textContent = currentQuestion.explanation;
       explanation.style.display = "block";
 
-      setTimeout(() => {
-        feedback.style.display = "none";
-        loadQuestion
+      // After 10 seconds, load next question
+      timeoutId = setTimeout(() => {
+        loadQuestion();
+      }, 10000);
+    }
+
+    // Initial shuffle and load first question
+    shuffleArray(questions);
+    window.onload = loadQuestion;
+  </script>
+
+</body>
+</html>
