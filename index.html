@@ -84,19 +84,12 @@
       margin-right: auto;
       color: #1e293b;
     }
-    #questionImage {
-      max-width: 100%;
-      border-radius: 12px;
-      margin: 1rem 0;
-      display: none;
-    }
   </style>
 </head>
 <body>
 
   <div class="container">
     <h1 id="question">Loading...</h1>
-    <img id="questionImage" src="" alt="" />
     <button class="btn" id="btnA" onclick="selectAnswer('A')"></button>
     <button class="btn" id="btnB" onclick="selectAnswer('B')"></button>
     <div id="feedback"></div>
@@ -109,71 +102,61 @@
         text: "Chemical Engineering is just chemistry.",
         options: { A: "Myth", B: "Fact" },
         correct: "A",
-        explanation: "Myth. Chemical engineering involves a lot more mathematics and physics, and also includes biology and materials science.",
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Chemical_engineering_lab.jpg/640px-Chemical_engineering_lab.jpg"
+        explanation: "Myth. Chemical engineering involves a lot more mathematics and physics, and also includes biology and materials science."
       },
       {
         text: "Chemical engineers mainly work in labs.",
         options: { A: "Myth", B: "Fact" },
         correct: "A",
-        explanation: "Myth. Chemical engineers often work in industrial plants, design processes, and solve engineering problems — not just lab work.",
-        image: null
+        explanation: "Myth. Chemical engineers often work in industrial plants, design processes, and solve engineering problems — not just lab work."
       },
       {
         text: "Chemical engineers at Loughborough are all male.",
         options: { A: "Myth", B: "Fact" },
         correct: "A",
-        explanation: "Myth. Chemical engineering has seen an uplift of female engineers, including at Loughborough.",
-        image: null
+        explanation: "Myth. Chemical engineering has seen an uplift of female engineers, including at Loughborough."
       },
       {
         text: "Chemical engineering only applies to the oil and gas industry.",
         options: { A: "Myth", B: "Fact" },
         correct: "A",
-        explanation: "Myth. Chemical engineers work across pharmaceuticals, food, materials, energy, and environmental sectors.",
-        image: null
+        explanation: "Myth. Chemical engineers work across pharmaceuticals, food, materials, energy, and environmental sectors."
       },
       {
         text: "You need to wear a lab coat every day as a chemical engineer.",
         options: { A: "Myth", B: "Fact" },
         correct: "A",
-        explanation: "Myth. While some lab work may be involved, many chemical engineers spend more time in offices or plants than in labs.",
-        image: null
+        explanation: "Myth. While some lab work may be involved, many chemical engineers spend more time in offices or plants than in labs."
       },
       {
         text: "Chemical engineers focus solely on healthcare.",
         options: { A: "Myth", B: "Fact" },
         correct: "A",
-        explanation: "Myth. Chemical engineering is a multidisciplinary field spanning healthcare, the environment, energy, food, and more.",
-        image: null
+        explanation: "Myth. Chemical engineering is a multidisciplinary field spanning healthcare, the environment, energy, food, and more."
       },
       {
         text: "The course here at Loughborough is accredited.",
         options: { A: "Myth", B: "Fact" },
         correct: "B",
-        explanation: "Fact. It is accredited by the Institution of Chemical Engineers (IChemE), and student membership is free!",
-        image: null
+        explanation: "Fact. It is accredited by the Institution of Chemical Engineers (IChemE), and student membership is free!"
       },
       {
         text: "We have spent £25M investment in our Department and facilities.",
         options: { A: "Myth", B: "Fact" },
         correct: "B",
-        explanation: "Fact. This includes state-of-the-art pilot engineering facilities and an 87-seater IT lab.",
-        image: null
+        explanation: "Fact. This includes state-of-the-art pilot engineering facilities and an 87-seater IT lab."
       },
       {
         text: "Chemical engineering is just about mixing chemicals.",
         options: { A: "Myth", B: "Fact" },
         correct: "A",
-        explanation: "Myth. Chemical engineers design and optimize processes for producing substances like pharmaceuticals, fuels, plastics, and consumer goods — it's much more than just mixing chemicals.",
-        image: null
+        explanation: "Myth. Chemical engineers design and optimize processes for producing substances like pharmaceuticals, fuels, plastics, and consumer goods — it's much more than just mixing chemicals."
       },
       {
         text: "Chemical engineers aren't concerned with environmental issues.",
         options: { A: "Myth", B: "Fact" },
         correct: "A",
-        explanation: "Myth. Environmental sustainability is a fundamental aspect of modern chemical engineering. Chemical engineers develop eco-friendly processes, minimize waste, and reduce environmental impact.",
-        image: null
+        explanation: "Myth. Environmental sustainability is a fundamental aspect of modern chemical engineering. Chemical engineers develop eco-friendly processes, minimize waste, and reduce environmental impact."
       }
     ];
 
@@ -185,7 +168,6 @@
     const btnB = document.getElementById("btnB");
     const explanation = document.getElementById("explanation");
     const feedback = document.getElementById("feedback");
-    const questionImage = document.getElementById("questionImage");
 
     // Fisher-Yates shuffle
     function shuffleArray(arr) {
@@ -222,16 +204,6 @@
       btnB.disabled = false;
       btnA.className = "btn";
       btnB.className = "btn";
-
-      if (currentQuestion.image) {
-        questionImage.src = currentQuestion.image;
-        questionImage.style.display = "block";
-        questionImage.alt = "Related image for question";
-      } else {
-        questionImage.style.display = "none";
-        questionImage.src = "";
-        questionImage.alt = "";
-      }
     }
 
     function selectAnswer(choice) {
