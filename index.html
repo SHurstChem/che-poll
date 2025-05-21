@@ -2,21 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ChemEng: Myth or Fact</title>
   <style>
     body {
       font-family: "Segoe UI", Roboto, sans-serif;
       background: linear-gradient(135deg, #d1fae5, #a7f3d0);
       margin: 0;
-      height: 100vh;          
-      display: flex;           
-      justify-content: center; 
-      align-items: center;     
-      padding: 1rem;           
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
       text-align: center;
     }
-
     .container {
       background: white;
       padding: 3rem 2rem;
@@ -27,13 +26,11 @@
       box-sizing: border-box;
       transition: all 0.3s ease;
     }
-
     h1 {
       font-size: 1.8rem;
       color: #1e293b;
       margin-bottom: 1.5rem;
     }
-
     .btn {
       display: block;
       width: 100%;
@@ -49,39 +46,31 @@
       transition: background-color 0.3s ease;
       user-select: none;
     }
-
     .btn:hover:not(:disabled) {
       background-color: #2563eb;
     }
-
     .btn:disabled {
       cursor: default;
       opacity: 0.7;
     }
-
     .correct {
       background-color: #16a34a !important;
     }
-
     .incorrect {
       background-color: #dc2626 !important;
     }
-
     #feedback {
       font-size: 1.2rem;
       font-weight: bold;
       margin-top: 1rem;
       display: none;
     }
-
     .correct-msg {
       color: #16a34a;
     }
-
     .incorrect-msg {
       color: #dc2626;
     }
-
     #explanation {
       margin-top: 1.5rem;
       font-size: 1rem;
@@ -95,12 +84,19 @@
       margin-right: auto;
       color: #1e293b;
     }
+    #questionImage {
+      max-width: 100%;
+      border-radius: 12px;
+      margin: 1rem 0;
+      display: none;
+    }
   </style>
 </head>
 <body>
 
   <div class="container">
     <h1 id="question">Loading...</h1>
+    <img id="questionImage" src="" alt="" />
     <button class="btn" id="btnA" onclick="selectAnswer('A')"></button>
     <button class="btn" id="btnB" onclick="selectAnswer('B')"></button>
     <div id="feedback"></div>
@@ -113,81 +109,99 @@
         text: "Chemical Engineering is just chemistry.",
         options: { A: "Myth", B: "Fact" },
         correct: "A",
-        explanation: "Myth. Chemical engineering involves a lot more mathematics and physics, and also includes biology and materials science."
+        explanation: "Myth. Chemical engineering involves a lot more mathematics and physics, and also includes biology and materials science.",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Chemical_engineering_lab.jpg/640px-Chemical_engineering_lab.jpg"
       },
       {
         text: "Chemical engineers mainly work in labs.",
         options: { A: "Myth", B: "Fact" },
         correct: "A",
-        explanation: "Myth. Chemical engineers often work in industrial plants, design processes, and solve engineering problems — not just lab work."
+        explanation: "Myth. Chemical engineers often work in industrial plants, design processes, and solve engineering problems — not just lab work.",
+        image: null
       },
       {
         text: "Chemical engineers at Loughborough are all male.",
         options: { A: "Myth", B: "Fact" },
         correct: "A",
-        explanation: "Myth. Chemical engineering has seen an uplift of female engineers, including at Loughborough."
+        explanation: "Myth. Chemical engineering has seen an uplift of female engineers, including at Loughborough.",
+        image: null
       },
       {
         text: "Chemical engineering only applies to the oil and gas industry.",
         options: { A: "Myth", B: "Fact" },
         correct: "A",
-        explanation: "Myth. Chemical engineers work across pharmaceuticals, food, materials, energy, and environmental sectors."
+        explanation: "Myth. Chemical engineers work across pharmaceuticals, food, materials, energy, and environmental sectors.",
+        image: null
       },
       {
         text: "You need to wear a lab coat every day as a chemical engineer.",
         options: { A: "Myth", B: "Fact" },
         correct: "A",
-        explanation: "Myth. While some lab work may be involved, many chemical engineers spend more time in offices or plants than in labs."
+        explanation: "Myth. While some lab work may be involved, many chemical engineers spend more time in offices or plants than in labs.",
+        image: null
       },
       {
         text: "Chemical engineers focus solely on healthcare.",
         options: { A: "Myth", B: "Fact" },
         correct: "A",
-        explanation: "Myth. Chemical engineering is a multidisciplinary field spanning healthcare, the environment, energy, food, and more."
+        explanation: "Myth. Chemical engineering is a multidisciplinary field spanning healthcare, the environment, energy, food, and more.",
+        image: null
       },
       {
         text: "The course here at Loughborough is accredited.",
         options: { A: "Myth", B: "Fact" },
         correct: "B",
-        explanation: "Fact. It is accredited by the Institution of Chemical Engineers (IChemE), and student membership is free!"
+        explanation: "Fact. It is accredited by the Institution of Chemical Engineers (IChemE), and student membership is free!",
+        image: null
       },
       {
         text: "We have spent £25M investment in our Department and facilities.",
         options: { A: "Myth", B: "Fact" },
         correct: "B",
-        explanation: "Fact. This includes state-of-the-art pilot engineering facilities and an 87-seater IT lab."
+        explanation: "Fact. This includes state-of-the-art pilot engineering facilities and an 87-seater IT lab.",
+        image: null
       },
       {
         text: "Chemical engineering is just about mixing chemicals.",
         options: { A: "Myth", B: "Fact" },
         correct: "A",
-        explanation: "Myth. Chemical engineers design and optimize processes for producing substances like pharmaceuticals, fuels, plastics, and consumer goods — it's much more than just mixing chemicals."
+        explanation: "Myth. Chemical engineers design and optimize processes for producing substances like pharmaceuticals, fuels, plastics, and consumer goods — it's much more than just mixing chemicals.",
+        image: null
       },
       {
         text: "Chemical engineers aren't concerned with environmental issues.",
         options: { A: "Myth", B: "Fact" },
         correct: "A",
-        explanation: "Myth. Environmental sustainability is a fundamental aspect of modern chemical engineering. Chemical engineers develop eco-friendly processes, minimize waste, and reduce environmental impact."
+        explanation: "Myth. Environmental sustainability is a fundamental aspect of modern chemical engineering. Chemical engineers develop eco-friendly processes, minimize waste, and reduce environmental impact.",
+        image: null
       }
     ];
 
-    let currentQuestion;
-    let lastQuestionIndex = -1;
+    let currentIndex = 0;
 
     const questionText = document.getElementById("question");
     const btnA = document.getElementById("btnA");
     const btnB = document.getElementById("btnB");
     const explanation = document.getElementById("explanation");
     const feedback = document.getElementById("feedback");
+    const questionImage = document.getElementById("questionImage");
+
+    // Fisher-Yates shuffle
+    function shuffleArray(arr) {
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+    }
 
     function loadQuestion() {
-      let nextIndex;
-      do {
-        nextIndex = Math.floor(Math.random() * questions.length);
-      } while (questions.length > 1 && nextIndex === lastQuestionIndex);
+      if (currentIndex >= questions.length) {
+        shuffleArray(questions);
+        currentIndex = 0;
+      }
 
-      lastQuestionIndex = nextIndex;
-      currentQuestion = questions[nextIndex];
+      const currentQuestion = questions[currentIndex];
+      currentIndex++;
 
       questionText.textContent = currentQuestion.text;
       btnA.textContent = currentQuestion.options.A;
@@ -198,11 +212,26 @@
       btnB.disabled = false;
       btnA.className = "btn";
       btnB.className = "btn";
+
+      if (currentQuestion.image) {
+        questionImage.src = currentQuestion.image;
+        questionImage.style.display = "block";
+        questionImage.alt = "Related image for question";
+      } else {
+        questionImage.style.display = "none";
+        questionImage.src = "";
+        questionImage.alt = "";
+      }
+
+      // Save current question for answer check
+      window.currentQuestion = currentQuestion;
     }
 
     function selectAnswer(choice) {
       btnA.disabled = true;
       btnB.disabled = true;
+
+      const currentQuestion = window.currentQuestion;
 
       if (choice === currentQuestion.correct) {
         document.getElementById("btn" + choice).classList.add("correct");
@@ -221,12 +250,4 @@
 
       setTimeout(() => {
         feedback.style.display = "none";
-        loadQuestion();
-      }, 10000); // ⏱ 10-second delay
-    }
-
-    window.onload = loadQuestion;
-  </script>
-</body>
-</html>
-
+        loadQuestion
