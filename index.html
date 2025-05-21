@@ -19,12 +19,12 @@
 
     .container {
       background: white;
-      padding: 3rem 2rem;      
+      padding: 3rem 2rem;
       border-radius: 20px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.15);
       max-width: 600px;
-      width: 100%;             
-      box-sizing: border-box;  
+      width: 100%;
+      box-sizing: border-box;
       transition: all 0.3s ease;
     }
 
@@ -36,11 +36,11 @@
 
     .btn {
       display: block;
-      width: 100%;           
-      max-width: 400px;      
+      width: 100%;
+      max-width: 400px;
       margin: 1rem auto;
-      padding: 1.5rem;       
-      font-size: 1.5rem;     
+      padding: 1.5rem;
+      font-size: 1.5rem;
       border: none;
       border-radius: 16px;
       cursor: pointer;
@@ -111,30 +111,63 @@
     const questions = [
       {
         text: "Chemical Engineering is just chemistry.",
-        options: {
-          A: "Myth",
-          B: "Fact"
-        },
+        options: { A: "Myth", B: "Fact" },
         correct: "A",
         explanation: "Myth. Chemical engineering involves a lot more mathematics and physics, and also includes biology and materials science."
       },
       {
         text: "Chemical engineers mainly work in labs.",
-        options: {
-          A: "Myth",
-          B: "Fact"
-        },
+        options: { A: "Myth", B: "Fact" },
         correct: "A",
         explanation: "Myth. Chemical engineers often work in industrial plants, design processes, and solve engineering problems — not just lab work."
       },
       {
         text: "Chemical engineers at Loughborough are all male.",
-        options: {
-          A: "Myth",
-          B: "Fact"
-        },
+        options: { A: "Myth", B: "Fact" },
         correct: "A",
         explanation: "Myth. Chemical engineering has seen an uplift of female engineers, including at Loughborough."
+      },
+      {
+        text: "Chemical engineering only applies to the oil and gas industry.",
+        options: { A: "Myth", B: "Fact" },
+        correct: "A",
+        explanation: "Myth. Chemical engineers work across pharmaceuticals, food, materials, energy, and environmental sectors."
+      },
+      {
+        text: "You need to wear a lab coat every day as a chemical engineer.",
+        options: { A: "Myth", B: "Fact" },
+        correct: "A",
+        explanation: "Myth. While some lab work may be involved, many chemical engineers spend more time in offices or plants than in labs."
+      },
+      {
+        text: "Chemical engineers focus solely on healthcare.",
+        options: { A: "Myth", B: "Fact" },
+        correct: "A",
+        explanation: "Myth. Chemical engineering is a multidisciplinary field spanning healthcare, the environment, energy, food, and more."
+      },
+      {
+        text: "The course here at Loughborough is accredited.",
+        options: { A: "Myth", B: "Fact" },
+        correct: "B",
+        explanation: "Fact. It is accredited by the Institution of Chemical Engineers (IChemE), and student membership is free!"
+      },
+      {
+        text: "We have spent £25M investment in our Department and facilities.",
+        options: { A: "Myth", B: "Fact" },
+        correct: "B",
+        explanation: "Fact. This includes state-of-the-art pilot engineering facilities and an 87-seater IT lab."
+      },
+      {
+        text: "Chemical engineering is just about mixing chemicals.",
+        options: { A: "Myth", B: "Fact" },
+        correct: "A",
+        explanation: "Myth. Chemical engineers design and optimize processes for producing substances like pharmaceuticals, fuels, plastics, and consumer goods — it's much more than just mixing chemicals."
+      },
+      {
+        text: "Chemical engineers aren't concerned with environmental issues.",
+        options: { A: "Myth", B: "Fact" },
+        correct: "A",
+        explanation: "Myth. Environmental sustainability is a fundamental aspect of modern chemical engineering. Chemical engineers develop eco-friendly processes, minimize waste, and reduce environmental impact."
       }
     ];
 
@@ -189,10 +222,11 @@
       setTimeout(() => {
         feedback.style.display = "none";
         loadQuestion();
-      }, 5000);
+      }, 10000); // ⏱ 10-second delay
     }
 
     window.onload = loadQuestion;
   </script>
 </body>
 </html>
+
